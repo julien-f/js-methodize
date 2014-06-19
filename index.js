@@ -25,12 +25,9 @@ var is = (function (toS) {
 //====================================================================
 
 var attachTo = function (object, name) {
-  if (!name) {
-    name = fnName(this.original);
-
-    if (!name) {
-      throw new Error('missing name');
-    }
+  if (!(name || (name = (this.name || (this.name = fnName(this.original))))))
+  {
+    throw new Error('missing name');
   }
 
   (object.prototype || object)[name] = this;
