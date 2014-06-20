@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/julien-f/js-methodize/status.svg?theme=shields.io)](https://david-dm.org/julien-f/js-methodize)
 [![devDependency Status](https://david-dm.org/julien-f/js-methodize/dev-status.svg?theme=shields.io)](https://david-dm.org/julien-f/js-methodize#info=devDependencies)
 
-> Compiled getter/setter for highest perfs.
+> Makes a function behaves as a method.
 
 
 ## Install
