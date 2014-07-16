@@ -24,13 +24,36 @@ var is = (function (toS) {
 
 //====================================================================
 
+var create = Object.create;
+var getPrototype = Object.getPrototypeOf;
+var defineProperty = Object.defineProperty;
+var setPrototype = Object.setPrototypeOf || function (object, prototype) {
+  object.__proto__ = prototype;
+};
+
 var attachTo = function (object, name) {
   if (!(name || (name = (this.name || (this.name = fnName(this.original))))))
   {
     throw new Error('missing name');
   }
 
-  (object.prototype || object)[name] = this;
+  // # Three possibilities.
+  //
+  // 1. assign to a normal property:
+  //object[name] = this;
+  //
+  // 2. create a constant (yet deletable) hidden property:
+  //defineProperty(object, {
+  //  configurable: true,
+  //  enumerable: false,
+  //  value: this,
+  //  writable: false,
+  //});
+  //
+  // 3. insert in the prototype chain:
+  var prototype = create(getPrototype(object));
+  prototype[name] = this;
+  setPrototype(object, prototype);
 
   return this;
 };
