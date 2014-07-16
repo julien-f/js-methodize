@@ -1,6 +1,6 @@
 {
   "name": "methodize",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Makes a function behaves as a method.",
   "keywords": [
     "method",
