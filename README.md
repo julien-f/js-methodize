@@ -17,12 +17,6 @@ Download [manually](https://github.com/julien-f/js-methodize/releases) or with p
 npm install --save methodize
 ```
 
-#### bower
-
-```
-bower install --save methodize
-```
-
 ## Example
 
 ```javascript
